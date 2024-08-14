@@ -73,4 +73,4 @@ To be done after initial product launch:
 
 1. [Pose estimation](https://www.tensorflow.org/lite/examples/pose\_estimation/overview\#:\~:text=Pose%20estimation%20is%20the%20task,key%20body%20joints%20(keypoints).)  
 2. [Pose Animator by Shan Huang](https://github.com/yemount/pose-animator)  
-4. [Dog Pose estimation](https://github.com/ryanloney/dog-pose-estimation)
+3. [Dog Pose estimation](https://github.com/ryanloney/dog-pose-estimation)
