@@ -1,9 +1,14 @@
 # How to Run
 
-Build docker image and then run:
+Build docker image:
 
 ```sh
-docker run --rm     -v /tmp/iexec_in:/iexec_in     -v /tmp/iexec_out:/iexec_out     -e IEXEC_IN=/iexec_in     -e IEXEC_OUT=/iexec_out     first-iexec /iexec_in/video_base64.txt
+docker build -t my-app .
+```
+Then run:
+
+```sh
+docker run --rm     -v /tmp/iexec_in:/iexec_in     -v /tmp/iexec_out:/iexec_out     -e IEXEC_IN=/iexec_in     -e IEXEC_OUT=/iexec_out     my-app /iexec_in/video_base64.txt
 ```
 
 Ensure that you have a base64 video file (`video_base64.txt`) in `/tmp/iexec_in/`. Check the `sample` folder of this repo.
