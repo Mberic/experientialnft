@@ -1,10 +1,16 @@
 {
-  "description": "My iExec resource description, must be at least 150 chars long in order to pass the validation checks. Describe your application, dataset or workerpool to your users",
+  "description": "This project uses video to create NFTs for users. It uses Pose estimation to detect human poses in the uploaded video. These poses can then be used to animate an SVG avatar. The aim of this signature approach to NFT generation is to create NFTs from “lived experiences”. We choose to call these experiential NFTs.",
   "license": "MIT",
-  "author": "?",
+  "author": "",
   "social": {
-    "website": "?",
-    "github": "?"
+    "website": "",
+    "github": "https://github.com/Mberic/experientialnft/"
   },
-  "logo": "logo.png"
+  "logo": "",
+  "app": {
+    "owner": "",
+    "type": "DOCKER",
+    "multiaddr": "docker.io/mbericks/signature-iexec:1.0.0",
+    "checksum": ""
+  }
 }
