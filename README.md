@@ -11,21 +11,23 @@ Let's explore the benefits of this **signature** approach:
 * Store moments on blockchain \- remember them as playful memories (using animations). Think danse videos, joyful moments, etc.   
 * Our NFT objects have a legitimate claim from where they derive their value (unlike most of the stuff on the market now).   
     
-  If you know that animation is using poses based on a recording of Vitalik, then you'll definitely be interested. Additionally, we now have AI and it can do lots of things. Wouldn't it be nice to know that the animation of the NFT you're buying was generated from real human poses?
+  If you know that an animation is using poses based on a recording of Vitalik, then you'll definitely be interested. Additionally, we now have A.I. and it can do lots of things. Wouldn't it be nice to know that the animation of the NFT you're buying was generated from real human poses?
 
 ## How it Works 
 
-1. A user uploads a video to the DApp frontend. This video is converted to `base64` text file and then sent to the Celestia network. Some other info is sent:   
-     
-* the `svg` avatar (or IPFS link for the avatar) that will be used create an animation  
-* the `chain` on which to mint. Initially, users will be able to mint on Ethereum only   
-* `address` to mint to  
+1. A user uploads a video to the DApp frontend. This video is converted to `base64` text file and then to the ap. Some other info is sent:  
+
+- IPFS link for the `svg` avatar that will be used create an animation (can also be provided later - See **Use cases**) 
     
-2. The DApp backend listens for data on the configured Celestia `namespace` and `network`. The app processes this video to detect human poses. If human poses are detected with \>0.6 accuracy, then we can continue execution.   
+2. The DApp backend receives the `base64` file and processes the video to detect human poses. If human poses are detected with \>0.65 accuracy, then we can store the pose objects (IPFS).   
      
-3. The pose objects are stored and then an NFT is minted on the chain the user chose.  
+3. After successful execution (detection of human poses), the user can now mint their experiential NFT. We'll need an IPFS link that points to the IPFS links for the `poses` and `svg` for the animation
      
 4. At the frontend, a user queries the detected `poses` plus SVG avatar and uses these to generate an animation ( **gif** or **video** ) . They can then list (or show off\!)  this animation on an NFT marketplace
+
+## Demo
+
+It may be difficult to visualize what we are trying to do here. So [here's a web2 ML experiment](https://www.scroobly.com/) that does something similar. The difference is that it uses live video feed.
 
 ## Tools
 
@@ -37,26 +39,22 @@ Frontend
 
 Backend (Node JS)
 
-- Lambada framework   
-- `posenet` and `facemesh` libraries to detect poses   
+- Docker 
+- `posenet` and `facemesh` libraries to detect poses from video frames
 - `ffmpeg` library to detect video frames 
 
 ## Limitations 
 
 Let's look at some practical considerations:
 
-- Video files must be a max of 1MB (size limitations because of Celestia \~ 1.8 Mb)  
+- Video files must be a max of 10 MB (This is an arbitary limit based on some tests I've done)  
 - Pose detection for 1 person ( multiple pose detection to be supported later )  
 - Supported ( tested ) file formats are `.mp4` , `.webm`
 
-## Tokenomics 
+## Tokenomics (Monetization)
 
-* Permissioned validator set  
-* Reward distribution follows a fixed percentage for each validator   
-* DApp fees are paid in TIA (support for other tokens later ). Payments are made to a multisig wallet owned by the validator set. The user must send the video & DApp fees using the same Celestia address \[ These are 2 separate transactions \]
-
-
-Note : there's no constraint about both transactions being in the same block. Whenever tokens are sent to the multisig wallet, the validators check for a match with unminted NFTs
+- Dapp fees for video processing
+- Dapp fees for minting Experiential NFTs
 
 ## Use cases
 
@@ -70,7 +68,6 @@ To be done after initial product launch:
 
 * Pose estimation for non-human motion e.g. for dogs and cats  
 * Fractionalization. Given that our videos generate an array of pose objects, we can have each “pose moment” (video frame) as an NFT   
-* Finance inclusion. Allow for usage of other tokens
 
 ## References 
 
