@@ -1,6 +1,6 @@
 # Signature \- Experiential NFTs
 
-This project uses video to create NFTs for users. It uses Pose estimation to detect human poses in the uploaded video. These poses can then be used to animate an SVG avatar. 
+This project uses video to create NFTs for users. It uses [Pose estimation](https://www.tensorflow.org/lite/examples/pose_estimation/overview) to detect human poses in the uploaded video. These poses can then be used to animate an SVG avatar. 
 
 The aim of this **signature** approach to NFT generation is to create NFTs from “lived experiences”. We choose to call these experiential NFTs. 
 
