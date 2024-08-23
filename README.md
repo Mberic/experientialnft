@@ -16,7 +16,9 @@ Let's explore the benefits of this **signature** approach:
 
 ## How it Works 
 
-1. A user uploads a video to the DApp frontend. This video is converted to `base64` text and then sent to the **Celestia network**. Some other info is sent:  
+1. A user uploads a video to the DApp frontend. This video is converted to `base64` text and then sent to the **Relayer service**. The Relayer is in charge of chunking the data & sending it to the L2 network
+
+Some other info is sent when sending the `base64` text:  
 
 - IPFS link for the `svg` avatar that will be used create an animation (This can also be provided later - See **Use cases**) 
     
@@ -52,21 +54,17 @@ Backend (Node JS)
 
 ## Architecture
 
-![3-layer-stack](https://celestia.org/static/8c2422a2a3f33850e68fa83d24bd801d/fc71d/3-layer-stack.png)
-
 Here's a look at our DApp at each layer:
 
 - Execution layer - Cartesi Machine
-- Settlement - Arbitrum Nitro
-- Consesus & DA - Celestia
-
-Reading: [Introduction to Arbitrum rollups with Celestia as DA](https://docs.celestia.org/developers/arbitrum-integration)
+- Settlement - Arbitrum Nova
+- Consesus & DA - AnyTrust
 
 ## Limitations 
 
 Let's look at some practical considerations:
 
-- Video files must be a max of 1 MB. This is an based on max blobspace in Celestia (~1.8Mb)  
+- Video files must be a max of 1 MB. 
 - Pose detection for 1 person ( multiple pose detection to be supported later )  
 - Supported ( tested ) file formats are `.mp4` , `.webm`
 
@@ -78,9 +76,7 @@ Notes:
 
 - Permissioned validator set
 - Reward distribution follows a fixed percentage for each validator 
-- DApp fees are paid in TIA (support for other tokens later ). Payments are made to a multisig wallet owned by the validator set. The user must send the video & DApp fees using the same Celestia address [ These are 2 separate transactions ]
-
-Note : There's no constraint about both transactions being in the same block. Whenever tokens are sent to the multisig wallet, the validators check for a match with unminted NFTs
+- DApp fees are paid in ETH (support for other tokens later). Payments are made to a multisig wallet owned by the validator set.
 
 ## Use cases
 
@@ -91,10 +87,6 @@ Note : There's no constraint about both transactions being in the same block. Wh
 ## Future developments 
 
 To be done after initial product launch:
-
-* Build a Relayer service. This will enable users pay DApp fees using ERC20 tokens instead of TIA. 
-
-Note: For the initial product launch, we'll use TIA. I first want the community to see my work. After their feedback, we'll see how integrate it in the next app version.
 
 * Pose estimation for non-human motion e.g. for dogs and cats  
 * Fractionalization. Given that our videos generate an array of pose objects, we can have each “pose moment” (video frame or second) as an NFT   
