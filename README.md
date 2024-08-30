@@ -43,8 +43,8 @@ It may be difficult to visualize what we are trying to do here. So [here's a web
 Frontend 
 
 * React  
-* Thirdweb React SDK (to provide wallet functionality)  
-* Paper.js. To animate SVG using poses
+* Web3Auth SDK. To provide account abstraction 
+* Paper.js. To animate SVG avatars using poses
 
 Backend (Node JS)
 
@@ -65,8 +65,10 @@ Here's a look at our DApp at each layer:
 Let's look at some practical considerations:
 
 - Video files must be a max of 1 MB. 
-- Pose detection for 1 person ( multiple pose detection to be supported later )  
+- Pose detection for 1 person (multiple pose detection to be supported later)  
 - Supported ( tested ) file formats are `.mp4` , `.webm`
+
+**Note**: We are interested in storing “moments” on the blockchain and not the entire “occasion”. With this in mind, our target is video clips of < 6 seconds. E.g a clip of you smiling at your grad ceremony or Snoop Dog doing the cripwalk
 
 ## Tokenomics (Monetization)
 
@@ -76,7 +78,7 @@ Notes:
 
 - Permissioned validator set
 - Reward distribution follows a fixed percentage for each validator 
-- DApp fees are paid in ETH (support for other tokens later). Payments are made to a multisig wallet owned by the validator set.
+- DApp fees are paid in ETH or CTSI. Payments are made to a multisig wallet owned by the validator set. Users are incentized to use CTSI with a 5% reduction in the DApp fees.
 
 ## Use cases
 
