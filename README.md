@@ -16,11 +16,11 @@ Let's explore the benefits of this **signature** approach:
 
 ## How it Works 
 
-1. A user uploads a video to the DApp frontend. This video is converted to `base64` text and then sent to the **Relayer service**. The Relayer is in charge of chunking the data & sending it to the L2 network
+1. A user logs into the platform - we use **account abstraction**. The user uploads a video to the DApp frontend. This video is converted to a `base64` text. This input is segmented and the chunks are sent to a **Bundler**. The **Paymaster** sponsors user gas costs for submitting input to the **InputBox** contract.
 
-Some other info is sent when sending the `base64` text:  
+When sending the `base64` text, we also send the following:  
 
-- IPFS link for the `svg` avatar that will be used create an animation (This can also be provided later - See **Use cases**) 
+- IPFS link for the `svg` avatar for the animation (This can also be provided later - See **Use cases**) 
     
 2. The DApp backend receives the `base64` text and processes the video to detect human poses. If human poses are detected with \>0.65 accuracy, then we can store the pose objects (IPFS). We also extract some other info:
 
